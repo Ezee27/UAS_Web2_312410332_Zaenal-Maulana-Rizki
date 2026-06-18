@@ -1,7 +1,3 @@
-Tentu, Mas Zaenal! Mari kita buat **README.md** yang sangat profesional, rinci, dan terstruktur agar dosen kamu bisa langsung memahami alur proyek **JEBOOK** tanpa banyak bertanya.
-
-Silakan salin teks di bawah ini ke dalam file `README.md` di repositori GitHub kamu.
-
 ---
 
 # 📚 JEBOOK - E-Library & Digital Book Rental System
@@ -88,13 +84,15 @@ const API_URL = "/backend-api/public/api"; // Atau arahkan ke http://localhost:8
 ```
 
 
-3. Buka file `index.html` menggunakan *Live Server* atau langsung di browser Anda.
+3. Tampilan file `index.html` menggunakan Live Server
+
+<img width="1919" height="990" alt="image" src="https://github.com/user-attachments/assets/44bcf4cd-01e6-4317-b672-82286764bc66" />
 
 ---
 
 ## 🌐 Tautan Proyek
 
-* **Link Demo (Live Hosting):** [http://jeebok.site.je](http://jeebok.site.je)
+* **Link Demo (Live Hosting):** [http://jeebok.site.je/frontend-spa/index.html#/]
 * **Link Video Presentasi:** [Masukkan link video YouTube/Drive kamu di sini]
 
 ---
