@@ -1,5 +1,3 @@
----
-
 # 📚 JEBOOK - E-Library & Digital Book Rental System
 
 **Proyek Akhir UAS Pemrograman Web 2**
