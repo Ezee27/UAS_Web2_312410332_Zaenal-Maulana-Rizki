@@ -1,10 +1,10 @@
 # 📚 JEBOOK - E-Library & Digital Book Rental System
+> **Laporan Akhir Lengkap & Dokumentasi Sistem - Ujian Akhir Semester (UAS) Pemrograman Web 2**
 
-**Proyek Akhir UAS Pemrograman Web 2**
+---
 
 ## 👤 Identitas Mahasiswa
-
-* **Nama:** Zaenal Maulana Rizki
+* **Nama Lengkap:** Zaenal Maulana Rizki
 * **NIM:** 312410332
 * **Kelas:** I241D
 * **Jurusan:** Teknik Informatika
@@ -12,99 +12,165 @@
 
 ---
 
-## 📝 Deskripsi Proyek
+## 📝 Deskripsi Proyek & Tema Studi Kasus
+**JEBOOK** adalah platform perpustakaan digital modern (*E-Library*) berbasis web yang dirancang khusus untuk mengotomatisasi sirkulasi manajemen koleksi buku serta mempermudah proses peminjaman buku digital secara mandiri.
 
-**JEBOOK** adalah platform perpustakaan digital modern berbasis web yang dikembangkan untuk mempermudah manajemen koleksi buku dan proses peminjaman secara digital. Proyek ini diimplementasikan menggunakan arsitektur **RESTful API** yang memisahkan antara sistem *backend* dan *frontend*, sehingga menciptakan pengalaman pengguna yang cepat dan responsif (*Single Page Application*).
-
-**Fitur Utama:**
-
-* **Manajemen Buku:** Admin dapat menambah, mengubah, dan menghapus koleksi buku.
-* **Sistem Peminjaman:** Pengguna dapat melihat status ketersediaan buku dan melakukan pengajuan sewa.
-* **Autentikasi Aman:** Sistem login admin berbasis **JWT (JSON Web Token)** yang diproteksi untuk menjaga integritas data.
-* **Responsive UI:** Antarmuka modern dengan **TailwindCSS** yang optimal dibuka di perangkat mobile maupun desktop.
+Tema studi kasus yang dipilih adalah **Sistem Informasi Peminjaman Buku Digital Berbasis Single Page Application (SPA)**. Aplikasi ini mengusung arsitektur modern *Decoupled Architecture*, di mana sistem dipisahkan penuh menjadi dua bagian utama:
+1. **Backend RESTful API (CodeIgniter 4):** Berperan sebagai motor penggerak data yang menyediakan endpoint mentah berformat JSON, memproses logika bisnis, mengelola transaksi database, serta memproteksi rute CRUD admin menggunakan komponen filter token kustom (`AuthFilter`).
+2. **Frontend SPA (Vue.js 3 & TailwindCSS):** Berperan sebagai penyaji antarmuka interaktif yang mengonsumsi data dari API. Memanfaatkan reaktivitas Vue, seluruh transisi data dan perpindahan halaman terjadi secara *real-time* tanpa perlu memuat ulang browser (*no-reload page*).
 
 ---
 
-## 🛠️ Arsitektur Teknologi
+## ⚙️ Petunjuk Instalasi Lingkungan Lokal (Localhost Development)
 
-Proyek ini dibangun menggunakan teknologi terkini sebagai berikut:
+Proyek dikonfigurasikan di bawah lingkungan web server Apache lokal dengan struktur penempatan direktori folder di:
+`C:/xampp/htdocs/UAS_Web2_312410332_Zaenal Maulana Rizki/`
 
-* **Backend:** CodeIgniter 4 (RESTful API, Filter, MySQL Database).
-* **Frontend:** Vue.js 3 (CDN Version, Single Page Application), Axios (HTTP Client), TailwindCSS (Styling).
-* **Database:** MySQL (Relational Database Management System).
+### 1. Mengaktifkan Layanan Web Server Lokal via XAMPP
+1. Buka aplikasi **XAMPP Control Panel** di komputer Anda.
+2. Klik tombol **Start** pada modul **Apache** untuk mengaktifkan web server.
+3. Klik tombol **Start** pada modul **MySQL** untuk mengaktifkan server basis data database.
+4. Pastikan status kedua modul tersebut sudah berwarna hijau menandakan port `80`, `443`, dan `3306` telah aktif.
 
----
+<img width="726" height="556" alt="image" src="https://github.com/user-attachments/assets/7fc487dc-eb83-4a9a-a677-6839e8b3c526" />
 
-## 📸 Dokumentasi Aplikasi
+### 2. Melakukan Import Database MySQL
+1. Buka browser Anda, akses alamat: `http://localhost/phpmyadmin/`
+2. Buat sebuah database baru dengan nama **`db_jebook`**.
+3. Pilih database `db_jebook` tersebut, klik tab **Import**, lalu pilih file SQL proyek yang tersedia di dalam folder root. Klik **Go/Import** sampai seluruh struktur tabel berhasil di-generate.
 
-### 1. Skema Relasi Database
+### 3. Menjalankan Server Backend CodeIgniter 4
+1. Buka File Explorer, masuk ke folder tujuan:
+   `C:/xampp/htdocs/UAS_Web2_312410332_Zaenal Maulana Rizki/backend-api/`
+2. Pastikan file `.env` lokal Anda telah dikonfigurasi secara tepat:
+ini
+   ```
+   CI_ENVIRONMENT = development
+   app.baseURL = 'http://localhost/UAS_Web2_312410332_Zaenal%20Maulana%20Rizki/backend-api/public/'
 
-[Lampirkan screenshot dari menu 'Designer' di phpMyAdmin]
-*Penjelasan: Database menggunakan relasi antar tabel `books`, `rentals`, dan `users` untuk memastikan integritas data transaksi peminjaman.*
+   database.default.hostname = localhost
+   database.default.database = db_jebook
+   database.default.username = root
+   database.default.password = 
+   database.default.DBDriver = MySQLi
 
-### 2. Uji Coba API (Postman - Error 401 Unauthorized)
+<img width="698" height="654" alt="image" src="https://github.com/user-attachments/assets/55934307-392e-43ad-8ffb-5e23de74b47f" />
 
-[Lampirkan screenshot Postman yang menampilkan status 401 Unauthorized]
-*Penjelasan: Pengujian API menunjukkan bahwa sistem proteksi (AuthFilter) berhasil menolak akses ke endpoint admin ketika request tidak menyertakan Bearer Token yang valid.*
 
-### 3. Tampilan Antarmuka
-
-* **Halaman Login:** [Lampirkan screenshot halaman login]
-* **Dashboard Admin:** [Lampirkan screenshot halaman dashboard]
-* **Modal Form (Tambah/Edit):** [Lampirkan screenshot modal popup]
-
----
-
-## ⚙️ Petunjuk Instalasi (Local Development)
-
-### 1. Menyiapkan Backend (CodeIgniter 4)
-
-1. **Clone Repositori:** `git clone [link-repo-anda]`
-2. **Database:** Buat database baru di phpMyAdmin dengan nama `jeebook`.
-3. **Import SQL:** Import file database `.sql` yang ada di folder proyek ke database tersebut.
-4. **Konfigurasi:** Masuk ke folder `backend-api`, ubah file `.env` dan sesuaikan koneksi database (`hostname`, `username`, `password`, `database`).
-5. **Jalankan Server:** Buka terminal di folder `backend-api`, jalankan perintah:
+3. Lakukan klik kanan di area kosong di dalam folder `backend-api` tersebut, lalu pilih opsi **Open in Terminal** (Buka di Terminal / Git Bash / Command Prompt).
+4. Di dalam terminal yang terbuka, ketikkan perintah berikut untuk menyalakan mesin CodeIgniter:
 ```bash
 php spark serve
 
 ```
 
+<img width="852" height="298" alt="image" src="https://github.com/user-attachments/assets/6411adea-1a38-4d63-8b37-443e6eb2cbb6" />
 
-*Backend akan berjalan di `http://localhost:8080`.*
 
-### 2. Menyiapkan Frontend (Vue.js SPA)
+5. Terminal akan menampilkan status aktif bahwa server lokal berhasil berjalan di `http://localhost:8080`.
 
-1. Buka folder `frontend-spa`.
-2. Buka file `index.html` dan pastikan variabel `API_URL` sudah sesuai dengan alamat lokal backend Anda:
+
+### 4. Menjalankan Aplikasi Frontend (VueJS SPA)
+
+1. Buka direktori folder frontend Anda di:
+`C:/xampp/htdocs/UAS_Web2_312410332_Zaenal Maulana Rizki/frontend-spa/`
+2. Buka berkas file `index.html` menggunakan editor VS Code, pastikan baris `API_URL` mengarah ke target internal lokal:
 ```javascript
-const API_URL = "/backend-api/public/api"; // Atau arahkan ke http://localhost:8080/api
+const API_URL = "http://localhost/UAS_Web2_312410332_Zaenal%20Maulana%20Rizki/backend-api/public/api";
 
 ```
 
 
-3. Tampilan file `index.html` menggunakan Live Server
-
-<img width="1919" height="990" alt="image" src="https://github.com/user-attachments/assets/44bcf4cd-01e6-4317-b672-82286764bc66" />
-
----
-
-## 🌐 Tautan Proyek
-
-* **Link Demo (Live Hosting):** [http://jeebok.site.je/frontend-spa/index.html#/]
-* **Link Video Presentasi:** [Masukkan link video YouTube/Drive kamu di sini]
+3. Jalankan file `index.html` tersebut dengan mengklik kanan lalu pilih **Open with Live Server** di VS Code.
+4. Aplikasi frontend Anda siap diuji pada browser laptop Anda melalui alamat URL:
+`http://localhost/UAS_Web2_312410332_Zaenal%20Maulana%20Rizki/frontend-spa/index.html#/`
 
 ---
 
-### 📝 Catatan Penting
+## 💻 Struktur Kode Program (VS Code Visuals)
 
-Aplikasi ini sudah dioptimasi menggunakan metode **Relative Path** agar dapat berjalan dengan baik di lingkungan hosting InfinityFree tanpa kendala *Cross-Origin Resource Sharing (CORS)* maupun masalah protokol *Mixed Content* pada perangkat mobile.
+### 1. File Utama `index.html` Frontend (Integrasi Vue & Tailwind)
+
+Screenshot potongan kode inisialisasi aplikasi Vue 3, Vue Router, Axios Interceptors, dan penetapan `API_URL`.
+
+
+### 2. File Konfigurasi `.env` & `Filters.php` Backend (CodeIgniter 4)
+
+Screenshot file `.env` untuk pengaturan database online/offline dan file `Filters.php` tempat didaftarkannya sistem pengaman CORS global.
+
 
 ---
 
-### Tips untuk Mas Zaenal:
+## 🚀 Fitur-Fitur Detail & Antarmuka Aplikasi
 
-1. **Gambar Screenshot:** Pastikan file gambar screenshot kamu disimpan di folder `screenshots/` di dalam repo, agar link gambar di atas bisa terbaca dengan benar (contoh: `![Halaman Login](screenshots/login.png)`).
-2. **Video Presentasi:** Jangan lupa sertakan link video agar dosen bisa melihat demonstrasi aplikasi kamu secara langsung.
-3. **Nama Folder:** Pastikan nama foldernya di GitHub **tepat** sama dengan yang diminta (yaitu `backend-api` dan `frontend-spa`).
+### 🌐 A. Sisi Pengguna Publik (Public Client Interface)
 
-Apakah ada bagian dari README ini yang ingin kamu tambahkan atau ubah, Mas?
+#### 1. Beranda & Katalog Koleksi Buku Terbaru
+
+Menyajikan visualisasi grid kartu (*cards*) koleksi buku terbaru yang dinamis menggunakan grid bertenaga TailwindCSS. Terdapat fitur pencarian reaktif instan berdasarkan judul atau nama penulis tanpa reload.
+
+
+#### 2. Formulir Sewa Buku Digital (Form Modal Input Identitas)
+
+Ketika tombol "Sewa Buku" diklik, sistem memicu *pop-up modal*. Di sini pengguna wajib mengisikan identitas lengkap meliputi Nama Lengkap, Email Aktif, dan Tanggal Pengembalian.
+
+
+#### 3. Halaman Daftar Pinjaman Publik
+
+Menyajikan tabel transparan yang berisi rekam jejak buku yang sedang disewa secara global, lengkap dengan informasi tanggal pengembalian dan nama peminjam agar tidak terjadi bentrok sewa.
+
+
+---
+
+### 🔐 B. Sisi Panel Admin (Protected Dashboard Interface)
+
+#### 1. Halaman Login Admin Perpustakaan
+
+Gerbang otentikasi aman khusus bagi pengelola perpustakaan menggunakan username `admin` dan password `admin123` bertenaga Stateful Bearer Token.
+
+
+#### 2. Dashboard Utama Admin & Visualisasi Tabel Data CRUD
+
+Ruang kerja admin untuk mengelola manajemen data master buku secara penuh (Tambah data buku baru, Edit detail informasi buku, dan Hapus buku dari sistem database).
+
+
+#### 3. Tampilan Form Modal Tambah / Edit Koleksi Buku
+
+Modal pop-up form penampung masukan data spesifikasi buku baru (judul, penulis, penerbit, sinopsis, genre, cover URL) ke dalam server database.
+
+
+#### 4. Monitoring Daftar Anggota & Status Sirkulasi Buku
+
+Tabel rekam data anggota pembaca serta pemantauan status sirkulasi buku terkini yang otomatis berubah dari label hijau **"Tersedia"** menjadi jingga **"Sedang Dipinjam"** ketika formulir sewa disubmit.
+
+
+---
+
+## 📸 Dokumentasi Pengujian API & Database
+
+### 1. Skema Relasi Tabel Database (phpMyAdmin Designer)
+
+Desain basis data relasional JEBOOK yang menampung relasi foreign key antara tabel buku (`books`) dan log peminjaman (`rentals`).
+
+
+### 2. Uji Coba API Gagal (Error 401 Unauthorized via Postman)
+
+Bukti pengujian keandalan komponen `AuthFilter` backend yang otomatis memblokir request jika token Authorization Bearer kosong atau tidak sah.
+
+
+---
+
+## 🌐 Tautan Akses Proyek
+
+* **Link Live Demo Aplikasi (Hosting Online):** [http://jeebok.site.je/frontend-spa/index.html#/](http://jeebok.site.je/frontend-spa/index.html#/)
+* **Link Video Presentasi Dokumentasi Proyek:** [Masukkan Link Tautan Video YouTube / Google Drive Anda Disini]
+
+---
+
+### 📝 Catatan Penting Mengenai Jalur Relatif (Relative Path)
+
+Proyek ini diimplementasikan menggunakan pemanggilan **Relative Path** (`/backend-api/public/api`) pada bagian frontend production. Hal ini merupakan teknik optimasi mutakhir agar frontend dan backend dapat saling bertukar data di server hosting InfinityFree secara langsung tanpa terhambat oleh kebijakan sistem keamanan *Cross-Origin Resource Sharing (CORS)* maupun kendala pemblokiran *Mixed Content* (HTTP vs HTTPS) pada sistem operasi perangkat mobile (HP).
+
+```
+
+```
