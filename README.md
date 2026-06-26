@@ -174,9 +174,3 @@ Bukti empiris pengujian keandalan sistem proteksi filter keamanan `AuthFilter` b
 * **Link Video Presentasi Dokumentasi Proyek:** https://youtu.be/BEvuo2T_99M?si=0vu3R-xKvHpgYFzY
 
 ---
-
-### 📝 Catatan Penting Mengenai Jalur Relatif (Relative Path)
-
-Proyek ini diimplementasikan menggunakan pemanggilan **Relative Path** (`/backend-api/public/api`) pada bagian frontend production. Hal ini merupakan teknik optimasi mutakhir agar frontend dan backend dapat saling bertukar data di server hosting InfinityFree secara langsung tanpa terhambat oleh kebijakan sistem keamanan *Cross-Origin Resource Sharing (CORS)* maupun kendala pemblokiran *Mixed Content* (HTTP vs HTTPS) pada sistem operasi perangkat mobile (HP).
-
----
