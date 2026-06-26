@@ -84,13 +84,14 @@ const API_URL = "http://localhost/UAS_Web2_312410332_Zaenal%20Maulana%20Rizki/ba
 
 ### 1. File Utama `index.html` Frontend (Integrasi Vue & Tailwind)
 
-*Tempat Screenshot potongan kode inisialisasi aplikasi Vue 3, Vue Router, Axios Interceptors, dan penetapan variabel target `API_URL`.*
-`![Kodingan Frontend index.html](screenshots/vsc_frontend.png)`
+<img width="1568" height="977" alt="image" src="https://github.com/user-attachments/assets/75fc6a1e-854c-471a-8d98-1fcaf58e86bc" />
 
 ### 2. File Konfigurasi `.env` & `Filters.php` Backend (CodeIgniter 4)
 
-*Tempat Screenshot berkas `.env` untuk manajemen sistem database lokal serta deklarasi filter CORS global pada berkas `Filters.php`.*
-`![Kodingan Backend Filters](screenshots/vsc_backend.png)`
+<img width="820" height="702" alt="image" src="https://github.com/user-attachments/assets/aabd142b-b0b6-4392-9a0e-5e08320ddf10" />
+
+---
+<img width="1564" height="980" alt="image" src="https://github.com/user-attachments/assets/a81791a7-c8df-449f-80d2-4c60560c317f" />
 
 ---
 
