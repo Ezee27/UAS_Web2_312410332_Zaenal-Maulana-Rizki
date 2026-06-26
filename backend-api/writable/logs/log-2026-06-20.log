@@ -1,0 +1,46 @@
+ERROR - 2026-06-20 14:56:37 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'db_jebook', 3306, '', 0)
+#1 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\Database\BaseBuilder.php(1647): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\app\Controllers\BookController.php(15): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\CodeIgniter.php(974): App\Controllers\BookController->index()
+#6 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BookController))
+#7 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\public\index.php(60): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\Database\BaseBuilder.php(1647): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\app\Controllers\BookController.php(15): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\CodeIgniter.php(974): App\Controllers\BookController->index()
+#5 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BookController))
+#6 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\public\index.php(60): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 C:\xampp\htdocs\UAS_Web2_312410332_Zaenal Maulana Rizki\backend-api\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2026-06-20 14:56:37 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: api/books]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1647): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `books`
+ORDER BY `id` DESC', [], false)
+ 3 APPPATH\Controllers\BookController.php(15): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\BookController->index()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BookController))
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(60): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\UAS_Web2_312410332_Zaenal Maulana Rizki\\backend-api\\public\\index.php')
