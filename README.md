@@ -157,19 +157,21 @@ Struktur tabel pemantauan data identitas para peminjam aktif. Sistem reaktivitas
 ### 1. Skema Relasi Tabel Database (phpMyAdmin Designer)
 
 Desain visual relasi basis data entitas JEBOOK yang menampung ikatan constraint foreign key antara tabel data induk buku (`books`) dan log histori peminjaman (`rentals`).
-`![Desainer Relasi Database](screenshots/db_designer.png)`
+
+<img width="573" height="425" alt="image" src="https://github.com/user-attachments/assets/6caa8d78-2648-42ce-be85-66b3b2f79c72" />
 
 ### 2. Uji Coba API Gagal (Error 401 Unauthorized via Postman)
 
 Bukti empiris pengujian keandalan sistem proteksi filter keamanan `AuthFilter` backend. Route admin otomatis memblokir request dan melempar kode respon merah `401 Unauthorized` jika token Authorization Bearer kosong.
-`![Pengujian Postman Error 401](screenshots/postman_401_error.png)`
+
+<img width="1437" height="691" alt="image" src="https://github.com/user-attachments/assets/6ac95321-90a5-4851-9f72-49a6febdbe91" />
 
 ---
 
 ## 🌐 Tautan Akses Proyek
 
 * **Link Live Demo Aplikasi (Hosting Online):** [http://jeebok.site.je/frontend-spa/index.html#/](http://jeebok.site.je/frontend-spa/index.html#/)
-* **Link Video Presentasi Dokumentasi Proyek:** [Masukkan Link Tautan Video YouTube / Google Drive Anda Disini]
+* **Link Video Presentasi Dokumentasi Proyek:** https://youtu.be/BEvuo2T_99M?si=0vu3R-xKvHpgYFzY
 
 ---
 
