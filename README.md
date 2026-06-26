@@ -179,9 +179,4 @@ Bukti empiris pengujian keandalan sistem proteksi filter keamanan `AuthFilter` b
 
 Proyek ini diimplementasikan menggunakan pemanggilan **Relative Path** (`/backend-api/public/api`) pada bagian frontend production. Hal ini merupakan teknik optimasi mutakhir agar frontend dan backend dapat saling bertukar data di server hosting InfinityFree secara langsung tanpa terhambat oleh kebijakan sistem keamanan *Cross-Origin Resource Sharing (CORS)* maupun kendala pemblokiran *Mixed Content* (HTTP vs HTTPS) pada sistem operasi perangkat mobile (HP).
 
-```
-
-### 💡 Catatan Tambahan untuk Kamu:
-Untuk sisa tempat screenshot yang masih menggunakan tanda kurung terbalik (seperti `` `![Halaman Utama Beranda](screenshots/web_home.png)` ``), kamu tinggal menghapus tanda petik miringnya (`` ` ``) di GitHub agar gambarnya langsung otomatis merender saat file gambar ditaruh di folder `screenshots/`.
-
-```
+---
